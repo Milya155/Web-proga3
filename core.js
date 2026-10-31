@@ -16,7 +16,7 @@
  * @returns {boolean}
  */
 function isInteger(n) {
-    // Ваш код
+    return Number.isInteger(n);
 }
 
 /**
@@ -28,7 +28,11 @@ function isInteger(n) {
  * @returns {number[]}
  */
 function even() {
-    // Ваш код
+    const arr = [];
+    for (let i = 2; i <= 20; i += 2) {
+        arr.push(i);
+    }
+    return arr;
 }
 
 /**
@@ -40,7 +44,11 @@ function even() {
  * @returns {number}
  */
 function sumTo(n) {
-    // Ваш код
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    }
+    return sum;
 }
 
 /**
@@ -53,7 +61,8 @@ function sumTo(n) {
  * @returns {number}
  */
 function recSumTo(n) {
-    // Ваш код
+    if (n <= 0) return 0;
+    return n + recSumTo(n - 1);
 }
 
 /**
@@ -65,7 +74,12 @@ function recSumTo(n) {
  * @returns {number}
  */
 function factorial(n) {
-    // Ваш код
+    if (n === 0 || n === 1) return 1;
+    let result = 1;
+    for (let i = 2; i <= n; i++) {
+        result *= i;
+    }
+    return result;
 }
 
 /**
@@ -78,7 +92,8 @@ function factorial(n) {
  * @returns {boolean}
  */
 function isBinary(n) {
-    // Ваш код
+    // Число больше 0 и побитовое И с (n-1) дает 0
+    return n > 0 && (n & (n - 1)) === 0;
 }
 
 /**
@@ -92,7 +107,17 @@ function isBinary(n) {
  * @returns {number}
  */
 function fibonacci(n) {
-    // Ваш код
+    if (n <= 0) return 0;
+    if (n === 1) return 1;
+    
+    let a = 0;
+    let b = 1;
+    for (let i = 2; i <= n; i++) {
+        let temp = a + b;
+        a = b;
+        b = temp;
+    }
+    return b;
 }
 
 /**
